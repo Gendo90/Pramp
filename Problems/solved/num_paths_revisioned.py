@@ -1,5 +1,15 @@
 import collections
 
+# breadth-first search graph algorithm solution - too slow for n>15,
+# problem specification was n<=100
+# O(2^n) time complexity according to this method from problem description
+
+# Tried this method upon not implementing the depth-first search correctly
+# at first, to get a working, "naive" solution (breadth-first is essentially
+# brute-force)
+
+# Have polished the implementation since first trying it out, so it is accurate
+# but the slowest...
 def isValidMove(i, j, n):
     if(i<=n-1 and j<=n-1 and i>=j):
         return True
@@ -39,8 +49,9 @@ def num_of_paths_to_dest(n):
                     path_partial_dict[first_item+"N"] = True
                     path_array.append(first_item+"N")
 
-    #print(path_dict)
+    # prints the number of loop iterations
     print(l)
     return len(path_dict)
 
+# prints the number of valid paths
 print(num_of_paths_to_dest(15))
