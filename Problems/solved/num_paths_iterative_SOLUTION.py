@@ -14,8 +14,12 @@ function numOfPathsToDest(n):
     for j from 1 to n-1:
         for i from j to n-1:
             if (i == j):
+                # case along the diagonal
                 currentRow[i] = lastRow[i]
             else:
+                # currentRow[i-1] represents the # of paths to the space
+                # immediately west, and lastRow[i] represents # of paths to
+                # the space immediately south
                 currentRow[i] = currentRow[i-1] + lastRow[i]
         # replaces the last row with the current row, then moves up a row
         # as the for loop iterates
